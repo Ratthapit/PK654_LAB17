@@ -58,7 +58,30 @@ void findRowSum(const double *x,double *y,int N,int M){
 	}
 }
 
+/*	double for loop
+void findRowSum(const double *x,double *y,int N,int M){
+    for(int i=0;i<N;i++) *(y+i)=0;
+
+    int count = 0;
+ 	for(int i=0;i<N;i++){
+        for(int j=0;j<M;j++){
+            *(y+i)+=*(x+count);
+            count++;
+        }
+    }
+}*/
+
 void findColSum(const double *x,double *y,int N,int M){
+    for(int i=0;i<M;i++) *(y+i)=0;
+    
+    int count = 0,a=0;
+	for(int i=0;i<N*M;i++){
+	    count=i%M; 
+	    *(y+count)+=*(x+i);
+	}
+}
+
+/*void findColSum(const double *x,double *y,int N,int M){
     for(int i=0;i<M;i++) *(y+i)=0;
     
     int count = 0,a=0;
@@ -74,4 +97,17 @@ void findColSum(const double *x,double *y,int N,int M){
 	    
 	    if(count==a)    a=0;
 	}
-}
+}*/
+
+
+/*void findColSum(const double *x,double *y,int N,int M){
+    for(int i=0;i<M;i++) *(y+i)=0;
+    
+    int count = 0;
+	for(int i=0;i<N;i++){
+        for(int j=0;j<M;j++){
+            *(y+M)+=*(x+count);
+            count++;
+        }
+    }
+}*/
